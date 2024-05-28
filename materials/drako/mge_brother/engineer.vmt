@@ -1,0 +1,15 @@
+"UnlitGeneric"
+{
+	"$basetexture" "drako/mge_brother/engineer"
+
+	"Proxies"
+	{
+		"AnimatedTexture"
+		{
+			"animatedTextureVar" "$basetexture"
+			"animatedTextureFrameNumVar" "$frame"
+			"animatedTextureFrameRate" "1"
+		}
+	
+	}
+}
