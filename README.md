@@ -1,6 +1,4 @@
-<h1 style="text-align: center;">Fun Overlays</h1>
-![](https://badgen.net/github/license/drakodark/fun-overlays)
-![](https://badgen.net/github/release/drakodark/fun-overlays)
+# Fun Overlays #
 
 ## Info ##
 These are plugins that add a fun overlay for all server clients.
