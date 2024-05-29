@@ -28,39 +28,64 @@ public Plugin myinfo =
 	name = "MGE Brother Overlay",
 	author = "Drako Dark",
 	description = "MGE Brother",
-	version = "1.1",
+	version = "1.2",
 	url = "https://drako.dev"
 };
 
 public void OnMapStart()
 {
+	// Download Files Table
 	AddFileToDownloadsTable("materials/drako/mge_brother/engineer.vmt");
 	AddFileToDownloadsTable("materials/drako/mge_brother/engineer.vtf");
+	AddFileToDownloadsTable("sound/drako/mge_brother/mge_brother.mp3");
 
+	// Precache Files
 	PrecacheDecal("materials/drako/mge_brother/engineer.vmt");
 	PrecacheDecal("materials/drako/mge_brother/engineer.vtf");
+	PrecacheSound("drako/mge_brother/mge_brother.mp3"); 
 }
 
 public void OnPluginStart()
 {
-	RegConsoleCmd("sm_mge_brother_engineer_on", Command_Engineer_On, "MGE Brother Engineer ON");
-	RegConsoleCmd("sm_mge_brother_engineer_off", Command_Engineer_Off, "MGE Brother Engineer OFF");
+	RegConsoleCmd("sm_mge_on", Command_MGE_On, "MGE Brother Overlay ON");
+	RegConsoleCmd("sm_mge_off", Command_MGE_Off, "MGE Brother Overlay OFF");
 }
 
-public Action Command_Engineer_On(int client, int args)
+public Action Command_MGE_On(int client, int args)
 {
-	for (int i = 1; i <= MaxClients; i++)
-    {
-		ClientCommand(i, "r_screenoverlay drako/mge_brother/engineer.vtf");
-    }
+	char Overlay_Name[32];
+	GetCmdArg(1, Overlay_Name, sizeof(Overlay_Name));
+
+	if(args < 1)
+	{
+		PrintToChat(client, "[SM] Use sm_mge_on <class-name> or <class-name>_music");
+	}
+
+	if(StrEqual(Overlay_Name, "engineer"))
+	{
+		for (int i = 1; i <= MaxClients; i++)
+		{
+			ClientCommand(i, "r_screenoverlay drako/mge_brother/engineer.vtf");
+		}
+	}
+	else if (StrEqual(Overlay_Name, "engineer_music"))
+	{
+		for (int i = 1; i <= MaxClients; i++)
+		{
+			ClientCommand(i, "r_screenoverlay drako/mge_brother/engineer.vtf");
+			EmitSoundToClient(i, "drako/mge_brother/mge_brother.mp3", _, _, _, _, 0.70);
+		}
+	}
+	
 	return Plugin_Handled;
 }
 
-public Action Command_Engineer_Off(int client, int args)
+public Action Command_MGE_Off(int client, int args)
 {
 	for (int i = 1; i <= MaxClients; i++)
     {
 		ClientCommand(i, "r_screenoverlay \"\"");
+		StopSound(i, SNDCHAN_AUTO, "drako/mge_brother/mge_brother.mp3");
     }
 	return Plugin_Handled;
 }
