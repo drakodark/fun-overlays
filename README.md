@@ -11,8 +11,11 @@ These are plugins that add a fun overlay for all server clients.
     sm_mge_off -> Desactivate all overlays and music.
 
     trollface plugin:
-    sm_trollface_on -> activate trollface overlay.
-    sm_trollface_off -> desactivate trollface overlay.
+    sm_trollface_on -> Activate trollface overlay.
+    sm_trollface_off -> Desactivate trollface overlay.
+
+    toasty plugin:
+    sm_toasty -> Activate toasty overlay for 1 second.
 
 ## Licence ##
 **GNU GENERAL PUBLIC LICENSE** Version 3, 29 June 2007
@@ -23,6 +26,11 @@ These are plugins that add a fun overlay for all server clients.
 - **Only game TF2**.
 
 ## Change Log General ##
+    30-05-2024
+    -  Added Toasty materials.
+    -  Added Toasty sound.
+    -  Added Toasty plugin v1.0.
+
     29-05-2024
     - Bz2 compressed versions of the materials have been added to be used in the fastdl.
 
@@ -48,4 +56,8 @@ These are plugins that add a fun overlay for all server clients.
     - Fixed an issue where overlays were not displayed to all server clients.
 
     v1.0 
+    - Initial Release.
+
+## Change Log Toasty Overlay ##
+    v1.0
     - Initial Release.

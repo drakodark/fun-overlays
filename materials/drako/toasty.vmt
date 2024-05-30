@@ -2,15 +2,4 @@
 {
 	"$basetexture" "drako/toasty"
 	"$translucent" 1
-
-	"Proxies"
-	{
-		"AnimatedTexture"
-		{
-			"animatedTextureVar" "$basetexture"
-			"animatedTextureFrameNumVar" "$frame"
-			"animatedTextureFrameRate" "22"
-		}
-	
-	}
 }
